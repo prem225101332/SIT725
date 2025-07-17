@@ -4,7 +4,7 @@
   "description": "Task 2.2P",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "author": "Prem Kumar",
   "license": "ISC",
