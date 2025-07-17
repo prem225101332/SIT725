@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIT725 Task2.2P</title>
+
+</head>
+<body>
+  <div class="container">
+    <p>Click below to change color and get server message</p>
+    <div class="color-box" id="colorBox"></div>
+    <button id="fetchButton">Click</button>
+    <div id="apiResponse"></div>
+  </div>
+  <script>
+    document.getElementById('fetchButton').addEventListener('click', async () => {
+      const colorBox = document.getElementById('colorBox');
+      colorBox.style.backgroundColor = colorBox.style.backgroundColor === 'red' ? 'blue' : 'red';
+      
+      try {
+        const response = await fetch('/api/hello');
+        const data = await response.json();
+        document.getElementById('apiResponse').textContent = data.message;
+      } catch (error) {
+        document.getElementById('apiResponse').textContent = 'Error fetching data';
+      }
+    });
+  </script>
+</body>
+</html>
